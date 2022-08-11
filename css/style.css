@@ -37,6 +37,7 @@ h3 {
 
 /* classes */
 
+/* content alignment */
 .button, .footer {
     align-items: center;
     display: flex;
@@ -47,6 +48,7 @@ h3 {
     align-items: center;
     display: flex;
 }
+/**/
 
 .button {
     background-color: #cbcbcb;
@@ -60,9 +62,12 @@ h3 {
     width: 364px;
 }
 
-.footer {
-    background-color: #ffffff;
-    bottom: 0;
+.content {
+    padding: 12px 0;
+    width: 100%;
+}
+
+.footer, .header {
     height: 92px;
     left: 0;
     position: fixed;
@@ -70,21 +75,44 @@ h3 {
     z-index: 1;
 }
 
+.footer {
+    background-color: #ffffff;
+    bottom: 0;
+}
+
 .header {
     background-color: #CF2B2B;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    height: 92px;
-    left: 0;
-    position: fixed;
     top: 0;
-    width: 100%;
-    z-index: 1;
 }
 
 .header div {
     margin-left: 20px;
 }
 
+.item {
+    margin-top: 25px;
+}
+
 .main {
     margin: 92px 0;
+}
+
+.option {
+    background-color: #ffffff;
+    border-radius: 9px;
+    flex-shrink: 0;
+    height: 216px;
+    margin: 0 8px;
+    width: 172px;
+}
+
+.options {
+    display: flex;
+    padding: 0 8px;
+    overflow-x: scroll;
+}
+
+.step {
+    margin: 0 0 12px 20px;
 }
