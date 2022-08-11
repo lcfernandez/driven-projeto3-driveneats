@@ -6,11 +6,15 @@ h1, h2 {
     font-family: 'Righteous', cursive;
 }
 
-h3, .button {
+h3, h4, h5, h6, .button {
     font-family: 'Roboto', sans-serif;
 }
 
 /* tags */
+
+* {
+    box-sizing: border-box;
+}
 
 body {
     background-color: #eeeeee;
@@ -33,6 +37,24 @@ h3 {
     font-size: 18px;
     font-weight: 400;
     line-height: 21px;
+}
+
+h4 {
+    color: #333333;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+h5 {
+    color: #A6A6A6;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+h6 {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 /* classes */
@@ -105,13 +127,13 @@ h3 {
     flex-shrink: 0;
     height: 216px;
     margin: 0 8px;
+    padding: 15px;
     width: 172px;
 }
 
 .option img {
     border-radius: 4px;
-    display: block;
-    margin: 18px auto 0 auto;
+    margin: 3px 0 10px 0;
     width: 144px;
 }
 
