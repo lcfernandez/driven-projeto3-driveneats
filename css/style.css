@@ -107,6 +107,13 @@ h3 {
     width: 172px;
 }
 
+.option img {
+    border-radius: 4px;
+    display: block;
+    margin: 18px auto 0 auto;
+    width: 144px;
+}
+
 .options {
     display: flex;
     padding: 0 8px;
