@@ -1,17 +1,90 @@
+/* fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@300;400;700&display=swap');
+
+h1, h2 {
+    font-family: 'Righteous', cursive;
+}
+
+h3, .button {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* tags */
+
+body {
+    background-color: #eeeeee;
+}
+
 h1 {
+    color: #FFFFFF;
     font-size: 44px;
+    letter-spacing: -0.012em;
 }
 
 h2 {
+    color: #333333;
     font-size: 26px;
+    letter-spacing: 0.018em;
 }
 
 h3 {
+    color: #FFFFFF;
     font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+/* classes */
+
+.button, .footer {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    align-items: center;
+    display: flex;
+}
+
+.button {
+    background-color: #cbcbcb;
+    border-radius: 50px;
+    color: #FFFFFF;
+    height: 61px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    text-align: center;
+    width: 364px;
+}
+
+.footer {
+    background-color: #ffffff;
+    bottom: 0;
+    height: 92px;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 }
 
 .header {
     background-color: #CF2B2B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     height: 92px;
+    left: 0;
+    position: fixed;
+    top: 0;
     width: 100%;
+    z-index: 1;
+}
+
+.header div {
+    margin-left: 20px;
+}
+
+.main {
+    margin: 92px 0;
 }
