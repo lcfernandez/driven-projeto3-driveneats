@@ -39,6 +39,14 @@ i {
     font-style: italic;
 }
 
+ion-icon {
+    bottom: 12px;
+    color: #32B72F;
+    font-size: 19px;
+    position: absolute;
+    right: 10px;
+}
+
 h1 {
     color: #FFFFFF;
     font-size: 44px;
@@ -132,6 +140,10 @@ button, .footer {
     margin-left: 20px;
 }
 
+.hidden {
+    display: none;
+}
+
 .item {
     margin-top: 25px;
 }
@@ -148,6 +160,7 @@ button, .footer {
     height: 216px;
     margin: 0 8px;
     padding: 15px;
+    position: relative;
     width: 172px;
 }
 
@@ -161,6 +174,10 @@ button, .footer {
     display: flex;
     padding: 0 8px;
     overflow-x: scroll;
+}
+
+.selected {
+    box-shadow: 0px 0px 0px 5px #32B72F inset;
 }
 
 .step {
