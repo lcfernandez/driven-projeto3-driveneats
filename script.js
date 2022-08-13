@@ -56,11 +56,21 @@ function enableButton() {
 
 function checkout(button) {
     if (button.classList.contains("enabled")) {
-        const name = prompt("Qual é o seu nome?");
-        const address = prompt("Qual é o seu endereço?");
+        
         const total = (selectedDishPrice + selectedBeveragePrice + selectedDeservePrice).toFixed(2);
-        const whatsappMessage = encodeURIComponent(`Olá, gostaria de fazer o pedido:\n- Prato: ${selectedDishName}\n- Bebida: ${selectedBeverageName}\n- Sobremesa: ${selectedDeserveName}\nTotal: R$ ${total}\n\nNome: ${name}\nEndereço: ${address}`);
 
-        window.open(`https://wa.me/5521999999999?text=${whatsappMessage}`);
+        const background = document.querySelector(".background");
+        const confirm = document.querySelector(".confirm");
+        
+        background.classList.remove("hidden");
+        confirm.classList.remove("hidden");
+
+        confirm.querySelector(".total span").innerHTML = total;
+
+
+        // const name = prompt("Qual é o seu nome?");
+        // const address = prompt("Qual é o seu endereço?");
+        // const whatsappMessage = encodeURIComponent(`Olá, gostaria de fazer o pedido:\n- Prato: ${selectedDishName}\n- Bebida: ${selectedBeverageName}\n- Sobremesa: ${selectedDeserveName}\nTotal: R$ ${total}\n\nNome: ${name}\nEndereço: ${address}`);
+        //window.open(`https://wa.me/5521999999999?text=${whatsappMessage}`);
     }
 }
