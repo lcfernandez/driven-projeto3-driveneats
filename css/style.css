@@ -145,7 +145,7 @@ button, .footer {
     margin-left: 20px;
 }
 
-.hidden {
+.hidden, ::-webkit-scrollbar {
     display: none;
 }
 
