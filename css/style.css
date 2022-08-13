@@ -10,6 +10,7 @@ h3, h4, h5, p, .button {
     font-family: 'Roboto', sans-serif;
 }
 
+
 /* tags */
 
 * {
@@ -18,6 +19,20 @@ h3, h4, h5, p, .button {
 
 body {
     background-color: #eeeeee;
+}
+
+button {
+    background-color: #cbcbcb;
+    border: none;
+    border-radius: 50px;
+    color: #FFFFFF;
+    cursor: pointer;
+    height: 61px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    text-align: center;
+    width: 364px;
 }
 
 i {
@@ -62,10 +77,10 @@ p {
     line-height: 18px;
 }
 
-/* classes */
 
-/* content alignment */
-.button, .footer {
+/* (most) content alignment */
+
+button, .footer {
     align-items: center;
     display: flex;
     justify-content: center;
@@ -81,19 +96,9 @@ p {
     align-items: center;
     display: flex;
 }
-/**/
 
-.button {
-    background-color: #cbcbcb;
-    border-radius: 50px;
-    color: #FFFFFF;
-    height: 61px;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 23px;
-    text-align: center;
-    width: 364px;
-}
+
+/* classes */
 
 .content {
     padding: 12px 0;
