@@ -1,7 +1,7 @@
 let selectedItems = 0;
-let selectedDish = "";
-let selectedBeverage = "";
-let selectedDeserve = "";
+let selectedDishName = "";
+let selectedBeverageName = "";
+let selectedDeserveName = "";
 let selectedDishPrice = 0.0;
 let selectedBeveragePrice = 0.0;
 let selectedDeservePrice = 0.0;
@@ -9,63 +9,56 @@ let selectedDeservePrice = 0.0;
 
 function deSelect(option, options) {
     const icon = option.querySelector("ion-icon");
-    const selected = document.querySelector(options + " .selected");
-    let exclusion = false;
+    const preSelected = document.querySelector(options + " .selected");
+    let change = false;
 
-    if (selected) {   
-        const iconSelected = selected.querySelector("ion-icon");
+    if (preSelected) {   
+        const iconPreSelected = preSelected.querySelector("ion-icon");
 
-        selected.classList.remove("selected");
-        iconSelected.classList.add("hidden");
+        preSelected.classList.remove("selected");
+        iconPreSelected.classList.add("hidden");
 
-        // Mutual exclusion verification
-        if (selected === option) {
-            option.classList.toggle("selected");
-            icon.classList.toggle("hidden");
-            exclusion = true;
-        }
-
-        selectedItems--;
+        change = true;
     }
     
-    option.classList.toggle("selected");
-    icon.classList.toggle("hidden");
+    option.classList.add("selected");
+    icon.classList.remove("hidden");
 
-    if (!exclusion) {
-        selectedItems++;
+    const name = option.querySelector(".description h4").innerHTML;
+    const price = Number(option.querySelector(".description h5 span").innerHTML.replace(",", "."));
         
-        if (options === ".dishes") {
-            selectedDish = option.querySelector(".description h4").innerHTML;
-            selectedDishPrice = Number(option.querySelector(".description h5 span").innerHTML.replace(",", "."));
-        } else if (options === ".beverages") {
-            selectedBeverage = option.querySelector(".description h4").innerHTML;
-            selectedBeveragePrice = Number(option.querySelector(".description h5 span").innerHTML.replace(",", "."));
-        } else {
-            selectedDeserve = option.querySelector(".description h4").innerHTML;
-            selectedDeservePrice = Number(option.querySelector(".description h5 span").innerHTML.replace(",", "."));
-        }
+    if (options === ".dishes") {
+        selectedDishName = name;
+        selectedDishPrice = price;
+    } else if (options === ".beverages") {
+        selectedBeverageName = name;
+        selectedBeveragePrice = price;
+    } else {
+        selectedDeserveName = name;
+        selectedDeservePrice = price;
     }
 
-    enableButton();
+    if (!change) {
+        selectedItems++;
+
+        if (selectedItems === 3) {
+            enableButton();
+        }
+    }
 }
 
 function enableButton() {
     const button = document.querySelector("button");
 
-    if (selectedItems === 3) {
-        button.classList.add("enabled");
-        button.innerHTML = "Fechar pedido";
-    } else {
-        button.classList.remove("enabled");
-        button.innerHTML = "Selecione os 3 itens <br/> para fechar o pedido";
-    }
+    button.classList.add("enabled");
+    button.innerHTML = "Fechar pedido";
 }
 
 function checkout(button) {
     if (button.classList.contains("enabled")) {
         const total = (selectedDishPrice + selectedBeveragePrice + selectedDeservePrice).toFixed(2);
-        const whatsappMessage = encodeURIComponent(`Olá, gostaria de fazer o pedido:\n- Prato: ${selectedDish}\n- Bebida: ${selectedBeverage}\n- Sobremesa: ${selectedDeserve}\nTotal: R$ ${total}`);
-        
+        const whatsappMessage = encodeURIComponent(`Olá, gostaria de fazer o pedido:\n- Prato: ${selectedDishName}\n- Bebida: ${selectedBeverageName}\n- Sobremesa: ${selectedDeserveName}\nTotal: R$ ${total}`);
+
         window.open(`https://wa.me/5521999999999?text=${whatsappMessage}`);
     }
 }
