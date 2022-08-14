@@ -218,22 +218,27 @@
 		<div class="confirm hidden">
 			Confirme seu pedido
 
-			<p class="order">
-				<span class="selected-dish-name"></span><span class="selected-dish-price"></span><br/>
-				<span class="selected-beverage-name"></span><span class="selected-beverage-price"></span><br/>
-				<span class="selected-deserve-name"></span><span class="selected-deserve-price"></span>
+			<p>
+				<span class="names">
+					<span class="selected-dish-name"></span><br/>
+					<span class="selected-beverage-name"></span><br/>
+					<span class="selected-deserve-name"></span><br/>
+					<span class="total">TOTAL</span>
+				</span>
+
+				<span class="prices">
+					<span class="selected-dish-price"></span><br/>
+					<span class="selected-beverage-price"></span><br/>
+					<span class="selected-deserve-price"></span><br/>
+					<span class="total-price"></span>
+				</span>
 			</p>
 
-			<p class="total">
-				TOTAL
-				<span></span>
-			</p>
-
-			<button>
+			<button onclick="makeOrder()">
 				Tudo certo, pode pedir!
 			</button>
-
-			<h6>Cancelar</h6>
+			
+			<h6 onclick="cancel()">Cancelar</h6>
 		</div>
 
 		<script src="./script.js"></script>

@@ -5,6 +5,7 @@ let selectedDeserveName = "";
 let selectedDishPrice = 0.0;
 let selectedBeveragePrice = 0.0;
 let selectedDeservePrice = 0.0;
+let total = "";
 
 
 function deSelect(option, options) {
@@ -57,20 +58,35 @@ function enableButton() {
 function checkout(button) {
     if (button.classList.contains("enabled")) {
         
-        const total = (selectedDishPrice + selectedBeveragePrice + selectedDeservePrice).toFixed(2);
+        total = (selectedDishPrice + selectedBeveragePrice + selectedDeservePrice).toFixed(2);
 
         const background = document.querySelector(".background");
         const confirm = document.querySelector(".confirm");
-        
+
         background.classList.remove("hidden");
         confirm.classList.remove("hidden");
 
-        confirm.querySelector(".total span").innerHTML = total;
-
-
-        // const name = prompt("Qual é o seu nome?");
-        // const address = prompt("Qual é o seu endereço?");
-        // const whatsappMessage = encodeURIComponent(`Olá, gostaria de fazer o pedido:\n- Prato: ${selectedDishName}\n- Bebida: ${selectedBeverageName}\n- Sobremesa: ${selectedDeserveName}\nTotal: R$ ${total}\n\nNome: ${name}\nEndereço: ${address}`);
-        //window.open(`https://wa.me/5521999999999?text=${whatsappMessage}`);
+        confirm.querySelector(".selected-dish-name").innerHTML = selectedDishName;
+        confirm.querySelector(".selected-beverage-name").innerHTML = selectedBeverageName;
+        confirm.querySelector(".selected-deserve-name").innerHTML = selectedDeserveName;
+        confirm.querySelector(".selected-dish-price").innerHTML = String(selectedDishPrice.toFixed(2)).replace(".", ",");
+        confirm.querySelector(".selected-beverage-price").innerHTML = String(selectedBeveragePrice.toFixed(2)).replace(".", ",");
+        confirm.querySelector(".selected-deserve-price").innerHTML = String(selectedDeservePrice.toFixed(2)).replace(".", ",");
+        confirm.querySelector(".total-price").innerHTML = `R$ ${total.replace(".", ",")}`;
     }
+}
+
+function makeOrder() {
+    const name = prompt("Qual é o seu nome?");
+    const address = prompt("Qual é o seu endereço?");
+    const whatsappMessage = encodeURIComponent(`Olá, gostaria de fazer o pedido:\n- Prato: ${selectedDishName}\n- Bebida: ${selectedBeverageName}\n- Sobremesa: ${selectedDeserveName}\nTotal: R$ ${total}\n\nNome: ${name}\nEndereço: ${address}`);
+    window.open(`https://wa.me/5521999999999?text=${whatsappMessage}`);
+}
+
+function cancel() {
+    const background = document.querySelector(".background");
+    const confirm = document.querySelector(".confirm");
+
+    background.classList.add("hidden");
+    confirm.classList.add("hidden");
 }
