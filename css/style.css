@@ -227,6 +227,7 @@ p {
     padding: 14px;
     position: relative;
     width: 172px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .options {
