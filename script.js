@@ -25,8 +25,8 @@ function deSelect(option, options) {
     option.classList.add("selected");
     icon.classList.remove("hidden");
 
-    const name = option.querySelector(".description h4").innerHTML;
-    const price = Number(option.querySelector(".description h5 span").innerHTML.replace(",", "."));
+    const name = option.querySelector("h4").innerHTML;
+    const price = Number(option.querySelector("h5 span").innerHTML.replace(",", "."));
         
     if (options === ".dishes") {
         selectedDishName = name;
