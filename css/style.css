@@ -32,7 +32,7 @@ button {
     height: 61px;
     line-height: 23px;
     text-align: center;
-    width: 364px;
+    width: 90vw;
 }
 
 h1 {
@@ -91,6 +91,7 @@ p {
     line-height: 18px;
 }
 
+
 /* classes */
 
 .background {
@@ -110,7 +111,7 @@ p {
     bottom: 0;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
     color: #ffffff;
-    font-size: 22px;
+    font-size: 1.2rem;
     font-weight: 700;
     height: 353px;
     left: 0;
@@ -119,8 +120,8 @@ p {
     position: fixed;
     right: 0;
     text-align: center;
-    top: 0;  
-    width: 377px;
+    top: 0;
+    width: 90vw;
     z-index: 3;
 }
 
@@ -131,7 +132,7 @@ p {
     font-size: inherit;
     font-weight: inherit;
     height: 52px;
-    width: 333px;
+    width: 80vw;
 }
 
 .confirm p {
