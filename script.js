@@ -1,3 +1,5 @@
+const confirm = document.querySelector(".confirm");
+const background = document.querySelector(".background");
 let selectedItems = 0;
 let selectedDishName = "";
 let selectedBeverageName = "";
@@ -7,31 +9,36 @@ let selectedBeveragePrice = 0.0;
 let selectedDeservePrice = 0.0;
 let total = "";
 
+function cancel() {
+    // Closing confirmation modal
+    confirm.classList.add("hidden");
+    background.classList.add("hidden");
+}
 
-function deSelect(option, options) {
-    const icon = option.querySelector("ion-icon");
-    const preSelected = document.querySelector(options + " .selected");
-    let change = false;
+function deSelect(option, item) {
+    // Checking if an option of the same item was already selected 
+    const preSelected = document.querySelector(item + " .selected");
 
+    // Deselecting if necessary
     if (preSelected) {   
         const iconPreSelected = preSelected.querySelector("ion-icon");
-
-        preSelected.classList.remove("selected");
         iconPreSelected.classList.add("hidden");
-
-        change = true;
+        preSelected.classList.remove("selected");
     }
     
-    option.classList.add("selected");
+    // Selecting the option
+    const icon = option.querySelector("ion-icon");
     icon.classList.remove("hidden");
+    option.classList.add("selected");
 
+    // Taking the name and price
     const name = option.querySelector("h4").innerHTML;
     const price = Number(option.querySelector("h5 span").innerHTML.replace(",", "."));
         
-    if (options === ".dishes") {
+    if (item === ".dishes") {
         selectedDishName = name;
         selectedDishPrice = price;
-    } else if (options === ".beverages") {
+    } else if (item === ".beverages") {
         selectedBeverageName = name;
         selectedBeveragePrice = price;
     } else {
@@ -39,33 +46,25 @@ function deSelect(option, options) {
         selectedDeservePrice = price;
     }
 
-    if (!change) {
+    // Enabling the checkout button when one of each item is selected (for the first time)
+    if (!preSelected) {
         selectedItems++;
 
         if (selectedItems === 3) {
-            enableButton();
+            enableCheckout(document.querySelector(".checkout"));
         }
     }
 }
 
-function enableButton() {
-    const button = document.querySelector("button");
-
-    button.classList.add("enabled");
-    button.innerHTML = "Fechar pedido";
-}
-
 function checkout(button) {
-    if (button.classList.contains("enabled")) {
-        
+    if (button.classList.contains("enabled")) {        
         total = (selectedDishPrice + selectedBeveragePrice + selectedDeservePrice).toFixed(2);
 
-        const background = document.querySelector(".background");
-        const confirm = document.querySelector(".confirm");
-
-        background.classList.remove("hidden");
+        // Showing confirmation modal
         confirm.classList.remove("hidden");
+        background.classList.remove("hidden");
 
+        // Taking options names, prices and the total of the order for the confirmation modal
         confirm.querySelector(".selected-dish-name").innerHTML = selectedDishName;
         confirm.querySelector(".selected-beverage-name").innerHTML = selectedBeverageName;
         confirm.querySelector(".selected-deserve-name").innerHTML = selectedDeserveName;
@@ -76,17 +75,14 @@ function checkout(button) {
     }
 }
 
+function enableCheckout(button) {
+    button.classList.add("enabled");
+    button.innerHTML = "Fechar pedido";
+}
+
 function makeOrder() {
     const name = prompt("Qual é o seu nome?");
     const address = prompt("Qual é o seu endereço?");
     const whatsappMessage = encodeURIComponent(`Olá, gostaria de fazer o pedido:\n- Prato: ${selectedDishName}\n- Bebida: ${selectedBeverageName}\n- Sobremesa: ${selectedDeserveName}\nTotal: R$ ${total}\n\nNome: ${name}\nEndereço: ${address}`);
     window.open(`https://wa.me/5521999999999?text=${whatsappMessage}`);
-}
-
-function cancel() {
-    const background = document.querySelector(".background");
-    const confirm = document.querySelector(".confirm");
-
-    background.classList.add("hidden");
-    confirm.classList.add("hidden");
 }

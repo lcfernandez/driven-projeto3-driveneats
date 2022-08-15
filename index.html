@@ -23,13 +23,13 @@
 
 		<div class="main">
 			<div class="content">
-				<div class="item">
+				<div class="item dishes">
 					<div class="step">
 						<h2>Primeiro, seu prato</h2>
 					</div>
 					<!-- step -->
 					
-					<div class="options dishes">
+					<div class="options">
 						<div class="option" onclick="deSelect(this, '.dishes')">
 							<img src="./images/dishes/chicken.jpg" />
 
@@ -73,13 +73,13 @@
 				</div>
 				<!-- item -->
 
-				<div class="item">
+				<div class="item beverages">
 					<div class="step">
 						<h2>Agora, sua bebida</h2>
 					</div>
 					<!-- step -->
 					
-					<div class="options beverages">
+					<div class="options">
 						<div class="option" onclick="deSelect(this, '.beverages')">
 							<img src="./images/beverages/water.jpeg" />
 
@@ -123,13 +123,13 @@
 				</div>
 				<!-- item -->
 
-				<div class="item">
+				<div class="item deserves">
 					<div class="step">
 						<h2>Por fim, sua sobremesa</h2>
 					</div>
 					<!-- step -->
 					
-					<div class="options deserves">
+					<div class="options">
 						<div class="option" onclick="deSelect(this, '.deserves')">
 							<img src="./images/deserves/brownie.jpeg" />
 
@@ -178,7 +178,7 @@
 		<!-- main -->
 
 		<div class="footer">
-			<button onclick="checkout(this)">
+			<button class="checkout" onclick="checkout(this)">
 				Selecione os 3 itens
 				<br/>
 				para fechar o pedido
@@ -215,6 +215,7 @@
 				Cancelar
 			</button>
 		</div>
+		<!-- confirm -->
 
 		<script src="./script.js"></script>
 
